@@ -1,4 +1,9 @@
 # financial-dashboard
+Integrantes:
+
+Artur Souto - 2016129
+Parjasnelly Araújo - 2010427
+
 Requisitos:
 - [x] (1,5 pontos) - A aplicação deve armazenar dados em um banco de dados PostgreSQL ou MySQL utilizando o
 framework Sequelize;
