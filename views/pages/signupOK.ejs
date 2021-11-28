@@ -1,0 +1,12 @@
+<%-contentFor('body')%>
+
+<main class="form-signup">
+    <div class="alert alert-success" role="alert">
+        Conta criada com sucesso!
+    </div>
+    <p>Por favor aguarde, voce será redirecionado automaticamente</p>
+    <p><a href="/">Clique aqui</a> caso não seja redirecionado automaticamente</p>
+</main>
+<script>
+    setTimeout(function () {window.location.href = "/dashboard"}, 3000)
+</script>

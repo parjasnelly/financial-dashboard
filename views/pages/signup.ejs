@@ -1,0 +1,40 @@
+<%-contentFor('body')%>
+
+<main class="form-signup">
+    <form method="post" action="/signup">
+        <h1 class="h3 mb-3 fw-normal">Inscrever-se</h1>
+        <% if(error){%>
+            <div class="alert alert-danger" role="alert">
+                <%= error.message%>
+            </div>
+        <% }%>
+        <div class="form-floating">
+            <% if(values){%>
+                <input type="text" class="form-control" id="floatingInput" placeholder="Nome de Usuário" name="username" value="<%= values.username%>">
+            <% }else{%>
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Nome de Usuário" name="username">
+            <% }%>
+                <label for="floatingInput">Nome de Usuário</label>
+        </div>
+        <div class="form-floating">
+            <% if(values){%>
+                 <input type="password" class="form-control" id="floatingPassword" placeholder="Senha" name="password" value="<%= values.password%>">
+            <% }else{%>
+                 <input type="password" class="form-control" id="floatingPassword" placeholder="Senha" name="password">
+            <% }%>
+
+            <label for="floatingPassword">Senha</label>
+        </div>
+        <div class="form-floating">
+            <% if(values){%>
+                <input type="password" class="form-control" id="floatingPasswordConfirmation" placeholder="Confirma Senha" name="passwordConfirmation"value="<%= values.passwordConfirmation%>">
+            <% }else{%>
+                    <input type="password" class="form-control" id="floatingPasswordConfirmation" placeholder="Confirma Senha" name="passwordConfirmation">
+            <% }%>
+
+            <label for="floatingPasswordConfirmation">Confirmação de Senha</label>
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Cadastrar</button>
+    </form>
+</main>

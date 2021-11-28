@@ -1,0 +1,35 @@
+<%-contentFor('body')%>
+
+<main class="form-signin">
+    <form method="post" action="/signin">
+        <h1 class="h3 mb-3 fw-normal">Seja Bem-Vindo, por favor faça seu login!</h1>
+
+        <% if(error){%>
+            <div class="alert alert-danger" role="alert">
+                <%= error%>
+            </div>
+        <% }%>
+
+        <div class="form-floating">
+            <% if(values){%>
+                <input type="text" class="form-control" id="floatingInput" placeholder="Nome de Usuário" name="username" value="<%= values.username%>">
+            <% }else{%>
+                <input type="text" class="form-control" id="floatingInput" placeholder="Nome de Usuário" name="username">
+            <% }%>
+            <label for="floatingInput">Nome de Usuário</label>
+        </div>
+        <div class="form-floating">
+            <% if(values){%>
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Senha" name="password" value="<%= values.password%>">
+            <% }else{%>
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Senha" name="password">
+            <% }%>
+
+            <label for="floatingPassword">Senha</label>
+        </div>
+
+
+        <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">Entrar</button>
+    </form>
+    <a class="w-100 btn btn-lg btn-primary" href="/signup" role="button">Criar nova conta</a>
+</main>
