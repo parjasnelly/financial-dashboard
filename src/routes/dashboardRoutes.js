@@ -13,7 +13,6 @@ route.get('/', ensureAuthenticated, async (req, res) => {
 })
 
 route.get('/revenues/new', ensureAuthenticated, (req, res) => {
-    console.log("ss")
     let options = {
         formName: 'Nova Receita',
         item: null,
