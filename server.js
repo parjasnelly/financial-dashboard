@@ -18,18 +18,18 @@ const AccountRepository = require('./src/database/repository/account')
 const bcrypt = require('bcrypt')
 
 passport.use(new LocalStrategy(
-    async(username, password, done) => {
+    async (username, password, done) => {
 
         let aRepo = new AccountRepository()
         let account = await aRepo.findByUsername(username)
-        if(account.length==0) return done(null, false, {message:'Usuário e/ou senha inválidos'})
+        if (account.length == 0) return done(null, false, { message: 'Usuário e/ou senha inválidos' })
 
-        bcrypt.compare(password, account[0].password, (err, result)=>{
-            if(err){
+        bcrypt.compare(password, account[0].password, (err, result) => {
+            if (err) {
                 return done(err)
             }
-            if(!result){
-                return done(null, false, {message:'Usuário e/ou senha inválidos'})
+            if (!result) {
+                return done(null, false, { message: 'Usuário e/ou senha inválidos' })
             }
 
             return done(null, account[0])
@@ -37,11 +37,11 @@ passport.use(new LocalStrategy(
     }
 ))
 
-passport.serializeUser((account, done)=>{
-    done(null,{id: account.id})
+passport.serializeUser((account, done) => {
+    done(null, { id: account.id })
 })
 
-passport.deserializeUser(async (obj, done)=>{
+passport.deserializeUser(async (obj, done) => {
     let aRepo = new AccountRepository()
     let account = await aRepo.findByID(obj.id)
     done(null, account[0])
@@ -51,7 +51,7 @@ const app = express()
 const port = 3000
 
 app.use(express.json())
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
 
 app.set('view engine', 'ejs')
 app.use(expressLayouts)
@@ -68,8 +68,8 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use('/', routes)
 
-app.listen(port, async() => {
-    //await database.sync({ force: true })
-    await database.sync()
-    console.log(`Blog app listening at http://localhost:${port}`)
+app.listen(port, async () => {
+    await database.sync({ force: true })
+    //await database.sync()
+    console.log(`Listening at http://localhost:${port}`)
 })

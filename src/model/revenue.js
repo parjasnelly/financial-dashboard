@@ -1,7 +1,7 @@
 const sequelize = require('../database')
-const {DataTypes, Model} = require('sequelize')
+const { DataTypes, Model } = require('sequelize')
 
-class Revenue extends Model {}
+class Revenue extends Model { }
 
 Revenue.init({
     name: {
@@ -9,12 +9,12 @@ Revenue.init({
         allowNull: false,
         unique: false
     },
-    value:{
+    value: {
         type: DataTypes.FLOAT,
         allowNull: false,
         unique: false
     }
-},{
+}, {
     sequelize,
     modelName: 'Revenue',
     tableName: 'revenues'
