@@ -9,7 +9,7 @@ Requisitos:
 framework Sequelize;
 - [x] (3,0 pontos) - A aplicação deve permitir que um usuário possa realizar a criação, edição, listagem e exclusão
 de receitas e despesas;
-- [ ] (2,0 pontos) - A aplicação deve possuir um layout customizado baseado em bootstrap ou um outro framework
+- [x] (2,0 pontos) - A aplicação deve possuir um layout customizado baseado em bootstrap ou um outro framework
 de UI a sua escolha;
 - [x] (1,5 pontos) - Criar o relacionamento entre as entidades utilizadas na aplicação (a princípio deve-se ter às
 entidades usuário e despesa/receita. Contudo pode-se criar quantas entidades achar necessária);
